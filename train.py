@@ -145,11 +145,12 @@ def train(model, loader, optimizer, criterion, saving_path, n_epochs_stop, epoch
 
 
 if __name__ == "__main__":
-
     # The data is located in the resources/data folder
     datadir = 'resources/data/fruits_image_classification'
     traindir = datadir + '/train/'
     validdir = datadir + '/validation/'
+    testdir = datadir + '/test/'
+    dirtytestdir = datadir + '/dirty_test/'
 
     # Check our images number in the train, val and test folders (Optional)
     # Iterate through each category
