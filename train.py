@@ -17,26 +17,6 @@ import wget
 import zipfile
 
 
-def download(source, target, filename):
-    if not os.path.exists(target):
-        os.mkdir(target)
-    targt_file = str(Path(target).joinpath(filename))
-    if os.path.exists(targt_file):
-        print('data already exists, skipping download')
-        return
-
-    print("Downloading from {} to {}".format(source, target))
-    wget.download(source, targt_file)
-    print("\nDone!")
-
-    print('Unzipping {}'.format(targt_file))
-    zipr = zipfile.ZipFile(targt_file)
-    zipr.extractall(target)
-    zipr.close()
-
-    print('Done!')
-
-
 # Build CNN model
 class Net(nn.Module):
     def __init__(self):
@@ -165,10 +145,6 @@ def train(model, loader, optimizer, criterion, saving_path, n_epochs_stop, epoch
 
 
 if __name__ == "__main__":
-    source = 'https://s3.eu-central-1.wasabisys.com/certifai/deployment-training-labs/fruits_image_classification-20210604T123547Z-001.zip'
-    target = 'resources/data/'
-    filename = 'fruits_image_classification.zip'
-    download(source, target, filename)
 
     # The data is located in the resources/data folder
     datadir = 'resources/data/fruits_image_classification'
