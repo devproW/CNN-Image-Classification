@@ -15,3 +15,12 @@ pip install -r requirements.txt
 ```
 
 ---
+
+## Tensorboard
+
+Visualise the score using tensorboard.
+
+```bash
+# Visualise score
+tensorboard --logdir logs/fruits_classifier --port 6060
+```
